@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from '../../redux/operations';
 import { getContacts } from 'redux/selectors';
 
 import {
@@ -25,7 +25,7 @@ const ContactForm = () => {
       notify(form.name.value);
       return;
     }
-    dispatch(addContact(form.name.value, form.number.value));
+    dispatch(addContact({ name: form.name.value, number: form.number.value }));
 
     form.reset();
   };
