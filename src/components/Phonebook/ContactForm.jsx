@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { addContact } from '../../redux/operations';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 
 import {
   StyledForm,
@@ -14,7 +14,7 @@ import {
 const ContactForm = () => {
   const notify = name =>
     toast(`Contact details of ${name} already in your phonebook!`);
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const handlerOnSubmit = event => {
